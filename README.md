@@ -38,12 +38,10 @@ In order to setup this project for a real use in your research, you will need to
 * In general, most textual content can be changed by editing the '*.html' files located in:
 	* `webapp/views/`
 * For server configurations and where the responses are submited, refer to:
-	* `server.js`
-	* Define the form for the pre-test in `res.redirect` (lines 17-19)
-	* Define the form for the pos-test in `res.redirect` (lines 27-29)
+	* `Server.js` - port 
 * For changing the baseURL refer to the files:
     * `server.js` - const `baseURL`
-	* `webapp/services.js`  - const `baseURL`
+    * `webapp/services.js`  - const `baseURL`
 
 ### Step 3: Running the project
 A simple way to run this project is:
@@ -61,9 +59,28 @@ npm start
 
 ## Guide
 
-### Changing the questions for the pre-test
+### Setting the pre-test questionnaire
 
-### Changing the questions for the pos-test
+![step 1 and 2 for setting the pre-test](imgs/pre-1-2.png)
+
+![step 3 for setting the pre-test](imgs/pre-3.png)
+
+![step 4 for setting the pre-test](imgs/pre-4.png)
+
+![step 5 for setting the pre-test](imgs/pre-5.png)
+
+![step 6 for setting the pre-test](imgs/pre-6.png)
+
+### Setting the pos-test questionnaire
+
+![step 1 and 2 for setting the pos-test](imgs/pos-1-2.png)
+
+![step 3 for setting the pos-test](imgs/pre-3.png)
+
+![step 4 for setting the pos-test](imgs/pre-4.png)
+
+![step 5 for setting the pos-test](imgs/pre-5.png)
+
 
 ### Frameworks
 This project was made using the following frameworks:
