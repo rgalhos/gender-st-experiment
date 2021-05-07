@@ -63,23 +63,56 @@ npm start
 
 ### Setting the pre-test questionnaire
 
+**Step 0**: Define the questionnaire to be applied in the pre-test. Each one of its section may be used to define a specific test, such as DFS-2, anxiety-trait, self-confidence.
+
+**Step 1**: Add an input text field named as `ID` to define the response identifier.
+
+**Step 2**: Define this text field as a required field.
+
 ![step 1 and 2 for setting the pre-test](imgs/pre-1-2.png)
+
+
+**Step 3**: Define the input text field `ID` as read-only and hide field in the advanced tab of the field.
 
 ![step 3 for setting the pre-test](imgs/pre-3.png)
 
+
+**Step 4**: Define the unique name for the text field `ID` as `respId` - This unique name will be used to pass the value for the field Id using the request parameter as `?respId=xxxx`.
+
 ![step 4 for setting the pre-test](imgs/pre-4.png)
 
+
+**Step 5**: Define the URL where the page will be redirected after to submit a response. This URL should be the webserver URL where the tutor app has been installed following by the `/#/home?respId={respId}` <- parameter used to pass the response identificator.
+
 ![step 5 for setting the pre-test](imgs/pre-5.png)
+
+
+**Step 6**: In the file Server.js, replace the redirect URL for the pre-test questionnaire URL. The value for the input text field `ID` is defined passing the parameter `?respId=:respId` 
 
 ![step 6 for setting the pre-test](imgs/pre-6.png)
 
 ### Setting the pos-test questionnaire
 
+**Step 0**: Define the questionnaire to be applied in the pos-test. Each one of its section may be used to define a specific test, such as FSS-2, anxiety-state, self-confidence.
+
+**Step 1**: Add an input text field named as `ID` to define the response identifier.
+
+**Step 2**: Define this text field as a required field.
+
 ![step 1 and 2 for setting the pos-test](imgs/pos-1-2.png)
+
+
+**Step 3**: Define the input text field `ID` as read-only and hide field in the advanced tab of the field.
 
 ![step 3 for setting the pos-test](imgs/pos-3.png)
 
+
+**Step 4**: Define the unique name for the text field `ID` as `respId` - This unique name will be used to pass the value for the field Id using the request parameter as `?respId=xxxx`.
+
 ![step 4 for setting the pos-test](imgs/pos-4.png)
+
+
+**Step 5**: In the file Server.js, replace the redirect URL for the pos-test questionnaire URL. The value for the input text field `ID` is defined passing the parameter `?respId=:respId` 
 
 ![step 5 for setting the pos-test](imgs/pos-5.png)
 
