@@ -75,11 +75,11 @@ npm start
 
 ![step 1 and 2 for setting the pos-test](imgs/pos-1-2.png)
 
-![step 3 for setting the pos-test](imgs/pre-3.png)
+![step 3 for setting the pos-test](imgs/pos-3.png)
 
-![step 4 for setting the pos-test](imgs/pre-4.png)
+![step 4 for setting the pos-test](imgs/pos-4.png)
 
-![step 5 for setting the pos-test](imgs/pre-5.png)
+![step 5 for setting the pos-test](imgs/pos-5.png)
 
 
 ### Frameworks
