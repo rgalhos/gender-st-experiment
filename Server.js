@@ -17,7 +17,7 @@ app.get('/pre(/:respId)?', function (req, res) {
     if (respId == undefined || respId == '' || !respId) {
         respId = uuid.v1();
     }
-    res.redirect('https://form.jotform.com/xxxxxxxxxxx?respId='+respId);
+    res.redirect('https://form.jotform.com/211267880856667?respId='+respId);
 });
 
 app.get('/pos(/:respId)?', function (req, res) {
