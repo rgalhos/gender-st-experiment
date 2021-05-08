@@ -1,6 +1,8 @@
 var tutorServices = angular.module("tutor.services", []);
 
 tutorServices.service("configService", function() {
+    
+    const baseURL = '/francys';
 
     const baseURL = '';
 
