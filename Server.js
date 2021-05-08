@@ -25,7 +25,7 @@ app.get('/pos(/:respId)?', function (req, res) {
     if (respId != undefined) {
         respId = respId.replace(/\s/g,'');
         if (respId != '' && respId) {
-            res.redirect('https://form.jotform.com/xxxxxxxxxxxx?respId='+respId);
+            res.redirect('https://form.jotform.com/211267678195668?respId='+respId);
         } else {
             console.log('Empty respId');
             res.redirect(baseURL+'/pre');
