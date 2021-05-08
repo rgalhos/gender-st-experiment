@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var fs = require('fs')
 var uuid = require('uuid');
-
+const baseURL = '/francys';
 
 app.use(express.static("webapp"));
 
