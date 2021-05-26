@@ -1,0 +1,172 @@
+{
+    "responsesFromBody": [
+        "startTime", "endTime", "gender", "age", "testType", "pretestPoints", "activityPoints", "posttestPoints", "pre", "post"
+    ],
+
+    "saveResponse": "http://localhost:8080/save-response",
+    "route404": "/pretest",
+    "routes": {
+        "/pretest": {
+            "templateUrl": "views/pretest.html",
+            "controller": "PretestCtrl"
+        },
+        "/home": {
+            "templateUrl": "views/home.html",
+            "controller": "HomeCtrl"
+        },
+        "/posttest": {
+            "templateUrl": "views/posttest.html",
+            "controller": "PosttestCtrl"
+        },
+        "/finish": {
+            "templateUrl": "views/finish.html",
+            "controller": "FinishCtrl"
+        }
+    },
+
+    "customPalettes": {
+        "newBlue": {
+            "extends": "blue",
+            "500": "#aced9d",
+            "contrastDefaultColor": "light"
+        }
+    },
+
+    "themes": {
+        "default": {
+            "primaryPalette": "blue-grey",
+            "accentPalette": "blue-grey",
+            "warnPalette": "blue-grey"
+        },
+        "stFemale": {
+            "primaryPalette": "purple",
+            "accentPalette": "purple",
+            "warnPalette": "purple"
+        },
+        "stMale": {
+            "primaryPalette": "blue",
+            "accentPalette": "blue",
+            "warnPalette": "blue"
+        }
+    },
+
+    "pages": {
+        "pretest": {
+            "nextPage": "/home",
+
+            "questions": [
+                {
+                    "string": "Sinto-me Calmo",
+                    "invert": true
+                },
+                {
+                    "string": "Sinto-me Seguro",
+                    "invert": true
+                },
+                "Estou tenso",
+                "Estou arrependido",
+                {
+                    "string": "Sinto-me à vontade",
+                    "invert": true
+                },
+                "Sinto-me perturbado",
+                "Estou preocupado com possíveis infortúnios",
+                {
+                    "string": "Sinto-me descansado",
+                    "invert": true
+                },
+                "Sinto-me ansioso",
+                {
+                    "string": "Sinto-me \"em casa\"",
+                    "invert": true
+                },
+                {
+                    "string": "Sinto-me confiante",
+                    "invert": true
+                },
+                "Sinto-me nervoso",
+                "Sinto-me agitado",
+                "Sinto-me em uma pilha de nervos",
+                {
+                    "string": "Estou descontraído",
+                    "invert": true
+                },
+                {
+                    "string": "Sinto-me satisfeito",
+                    "invert": true
+                },
+                "Estou preocupado",
+                "Sinto-me confuso",
+                {
+                    "string": "Sinto-me alegre",
+                    "invert": true
+                },
+                {
+                    "string": "Sinto-me bem",
+                    "invert": true
+                }
+            ]
+        },
+
+        "home": {
+            "nextPage": "/posttest"
+        },
+
+        "posttest": {
+            "nextPage": "/finish",
+
+            "questions": [
+                {
+                    "string": "Sinto-me Calmo",
+                    "invert": true
+                },
+                {
+                    "string": "Sinto-me Seguro",
+                    "invert": true
+                },
+                "Estou tenso",
+                "Estou arrependido",
+                {
+                    "string": "Sinto-me à vontade",
+                    "invert": true
+                },
+                "Sinto-me perturbado",
+                "Estou preocupado com possíveis infortúnios",
+                {
+                    "string": "Sinto-me descansado",
+                    "invert": true
+                },
+                "Sinto-me ansioso",
+                {
+                    "string": "Sinto-me \"em casa\"",
+                    "invert": true
+                },
+                {
+                    "string": "Sinto-me confiante",
+                    "invert": true
+                },
+                "Sinto-me nervoso",
+                "Sinto-me agitado",
+                "Sinto-me em uma pilha de nervos",
+                {
+                    "string": "Estou descontraído",
+                    "invert": true
+                },
+                {
+                    "string": "Sinto-me satisfeito",
+                    "invert": true
+                },
+                "Estou preocupado",
+                "Sinto-me confuso",
+                {
+                    "string": "Sinto-me alegre",
+                    "invert": true
+                },
+                {
+                    "string": "Sinto-me bem",
+                    "invert": true
+                }
+            ]
+        }
+    }
+}

@@ -3,7 +3,9 @@ var bodyParser = require('body-parser');
 var app = express();
 var fs = require('fs')
 var uuid = require('uuid');
+require("dotenv").config();
 
+const config = require("./config");
 
 app.use(express.static("webapp"));
 
@@ -14,37 +16,49 @@ app.get('/', function (req, res) {
 // Parses the body for POST, PUT, DELETE, etc.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.post('/save-response', function(req, res, next){
 
-  //generates a random id for the participant's response
-  var respId = uuid.v1()
+app.post("/save-response", function(req, res) {
+    saveResponse(req.body);
 
-  //data to be saved (participant's response)
-  var row = [respId, req.body.startTime, req.body.endTime, req.body.gender, req.body.age, req.body.testType, req.body.pretestPoints, req.body.activityPoints, req.body.posttestPoints, req.body.pre, req.body.post].join(";")+"\n"
-
-  fs.stat('responses.csv', function (err, stat) {
-      if (err == null) {
-          //write the actual data and end with newline
-          fs.appendFile('responses.csv', row, function (err) {
-              if (err) throw err;
-              console.log('The response was saved!');
-          });
-      }
-      else {
-          //write the headers and newline
-          console.log('First answer, adding headers');
-          var headers= ["responseId", "startTime","endTime","gender","age","testType","anxietyPre","activityPoints","anxietyPost","anxietyRawPre","anxietyRawPost"].join(";") + "\n" + row
-
-          fs.writeFile('responses.csv', headers, function (err) {
-              if (err) throw err;
-              console.log('Response saved!');
-          });
-      }
-  });
-
-  res.end()
-
+    res.end();
 });
 
-app.listen(8080, 'localhost');
-console.log("This project is listening on port 8080");
+function saveResponse(body) {
+    // generates a random id for the participant's response
+    var respId = uuid.v1();
+
+    // data to be saved (participant's response)
+    var response = [ respId ];
+
+    // responses from body
+    for (const r of config.responsesFromBody) {
+        response.push(body[r]);
+    }
+
+    response = response.join(";") + "\n";
+
+    fs.stat("responses.csv", function(err, stat) {
+        if (err == null) {
+            // write the actual data and end with newline
+            fs.appendFile("responses.csv", response, function(err) {
+                if (err) throw err;
+            });
+        } else {
+            var headers = [ "responseId", ...config.responsesFromBody ];
+            headers = headers.join(";") + "\n";
+
+            fs.writeFile("responses.csv", headers + response, function(err) {
+                if (err) throw err;
+                console.log("Response saved!");
+            })
+        }
+    });
+}
+
+app.listen(process.env.SERVER_PORT, process.env.SERVER_HOST, function() {
+    console.log(`The server is listening to ${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`);
+
+    if (process.env.pm_id === undefined) {
+        console.warn("You are not running the server with PM2! If the server crashes it won't start again.");
+    }
+});

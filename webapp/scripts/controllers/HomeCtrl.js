@@ -94,9 +94,8 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
         return array;
     };
 
-    $scope.getBar = function() {
-        return "assets/" + configService.getTheme() + "/images/bar.png";
-
+    $scope.getTheme = function() {
+        return configService.getTheme();
     };
 
     $scope.checkSet1 = function() {
@@ -117,7 +116,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     };
 
     $scope.showPosttest = function() {
-        $location.path("/posttest");
+        $location.path(config.pages.home.nextPage);
     };
 
     $scope.getStars = function() {

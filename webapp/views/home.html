@@ -40,7 +40,14 @@
                             <label flex="50" class="small" layout-padding>{{a.name}}</label>
                         </div>
                         <div width="100px" layout="row" layout-align="left center">
+                            <div style="width: 100%">
+                                <md-toolbar layout="row" layout-align="start center" layout-padding="" class="md-{{getTheme()}}-theme"
+                                    style="width: {{getUserPoints($index)}}px; height: 20px; padding: 0; min-height: 0;">
+                                </md-toolbar>
+                            </div>
+                            <!--
                             <img ng-src="{{getBar()}}" ng-repeat="z in getNumber(a.points) track by $index">
+                            -->
                             <label class="small" layout-margin>{{getUserPoints($index)}}</label>
                         </div>
                     </md-list-item>

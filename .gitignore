@@ -2,3 +2,5 @@ package-lock.json
 /node_modules
 build
 npm-debug.log
+responses.csv
+/webapp/scripts/config.js

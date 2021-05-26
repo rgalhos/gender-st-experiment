@@ -2,9 +2,9 @@ var tutorServices = angular.module("tutor.services", []);
 
 tutorServices.service("configService", function() {
 
-    var opts = ["default", "stMale", "stFemale"];
+    var opts = Object.keys(config.themes);
 
-    var random = Math.floor((Math.random() * 123457)) % 3;
+    var random = Math.floor((Math.random() * 123457)) % opts.length;
     var currentTheme = opts[random];
     // var currentTheme = "default";
 
@@ -52,6 +52,22 @@ tutorServices.service("User", function($http) {
         pre: [],
         post: []
     };
+
+    this.setValue = function(key, value) {
+        if (config.responsesFromBody.indexOf(key) != -1) {
+            resp[key] = value;
+        } else {
+            console.error(key + " is not in 'responsesFromBody'");
+        }
+    }
+
+    this.getValue = function(key) {
+        if (config.responsesFromBody.indexOf(key) == -1) {
+            return console.error(key + " is not in 'responsesFromBody'");
+        }
+        
+        return resp[key];
+    }
 
     this.setGender = function(value) {
         resp.gender = value;
@@ -103,7 +119,7 @@ tutorServices.service("User", function($http) {
 
     this.save = function() {
         $http({
-            url: "http://localhost:8080/save-response",
+            url: config.saveResponse,
             dataType: "json",
             method: "POST",
             headers: {

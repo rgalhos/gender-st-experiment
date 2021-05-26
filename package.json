@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This project comprises an experimental environment to study the impact of gender stereotype threat in student anxiety",
   "dependencies": {
+    "dotenv": "^9.0.2",
     "express": "*",
     "uuid": "*"
   },
